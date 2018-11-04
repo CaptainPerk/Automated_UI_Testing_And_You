@@ -6,7 +6,7 @@ namespace AutomatedUITestingAndYou.Interfaces
     {
         void InstantiateNewBrowser(BrowserType browserType, string url);
         string GetCurrentUrl();
-        void NavigateTo(string Url);
+        void NavigateTo(string url);
         void RefreshPage();
         void MaximizeWindow();
         void SetResolution(int width, int height);

@@ -89,13 +89,16 @@ namespace SparkboxUITests
             Site.UseNavigationBarToNavigateTo(Browser, Site.ContactPage);
             WaitForSeconds(2);
             Assert.Contains(Site.ContactPage.Url, Browser.GetCurrentUrl());
-            var nameTextBox = Browser.GetElementByCssSelector("#main-content > div > form > div:nth-child(2) > input");
+            var nameTextBox = Browser.GetElementByCssSelector(Site.ContactPage.NameTextboxCssSelector);
             Browser.EnterText(nameTextBox, "Perk");
-            var companyTextBox = Browser.GetElementByCssSelector("#main-content > div > form > div:nth-child(3) > input");
+            WaitForSeconds(1);
+            var companyTextBox = Browser.GetElementByCssSelector(Site.ContactPage.CompanyTextboxCssSelector);
             Browser.EnterText(companyTextBox, "Hand Cannon Games");
-            var emailTextBox = Browser.GetElementByCssSelector("#main-content > div > form > div:nth-child(4) > input");
+            WaitForSeconds(1);
+            var emailTextBox = Browser.GetElementByCssSelector(Site.ContactPage.EmailTextboxCssSelector);
             Browser.EnterText(emailTextBox, "perk@handcannongames.com");
-            var phoneTextBox = Browser.GetElementByCssSelector("#main-content > div > form > div:nth-child(5) > input");
+            WaitForSeconds(1);
+            var phoneTextBox = Browser.GetElementByCssSelector(Site.ContactPage.PhoneTextboxCssSelector);
             Browser.EnterText(phoneTextBox, "937-555-1234");
             WaitForSeconds(10);
         }

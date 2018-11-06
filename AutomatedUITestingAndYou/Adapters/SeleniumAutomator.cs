@@ -38,6 +38,8 @@ namespace AutomatedUITestingAndYou.Adapters
                 default:
                     throw new ArgumentOutOfRangeException(nameof(browserType), browserType, null);
             }
+
+            NavigateTo(url);
         }
 
         public string GetCurrentUrl() => WebDriver.Url;

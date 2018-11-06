@@ -11,8 +11,8 @@ namespace SparkboxUITests
         [Fact]
         public void Selenium_Can_Do_Magic()
         {
-            Browser.NavigateTo("https://www.google.com");
-            Assert.Contains("https://www.google.com", Browser.GetCurrentUrl());
+            Browser.NavigateTo(GoogleUrl);
+            Assert.Contains(GoogleUrl, Browser.GetCurrentUrl());
             WaitForSeconds(7);
             Browser.NavigateTo(Site.HomePage.Url);
             Assert.Contains(Site.HomePage.Url, Browser.GetCurrentUrl());
@@ -81,6 +81,23 @@ namespace SparkboxUITests
             Site.UseNavigationBarToNavigateTo(Browser, Site.HomePage);
             WaitForSeconds(2);
             Assert.Contains(Site.HomePage.Url, Browser.GetCurrentUrl());
+        }
+
+        [Fact]
+        public void Can_Fill_Out_Contact_Form()
+        {
+            Site.UseNavigationBarToNavigateTo(Browser, Site.ContactPage);
+            WaitForSeconds(2);
+            Assert.Contains(Site.ContactPage.Url, Browser.GetCurrentUrl());
+            var nameTextBox = Browser.GetElementByCssSelector("#main-content > div > form > div:nth-child(2) > input");
+            Browser.EnterText(nameTextBox, "Perk");
+            var companyTextBox = Browser.GetElementByCssSelector("#main-content > div > form > div:nth-child(3) > input");
+            Browser.EnterText(companyTextBox, "Hand Cannon Games");
+            var emailTextBox = Browser.GetElementByCssSelector("#main-content > div > form > div:nth-child(4) > input");
+            Browser.EnterText(emailTextBox, "perk@handcannongames.com");
+            var phoneTextBox = Browser.GetElementByCssSelector("#main-content > div > form > div:nth-child(5) > input");
+            Browser.EnterText(phoneTextBox, "937-555-1234");
+            WaitForSeconds(10);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace AutomatedUITestingAndYou.Interfaces
         void ScrollDown();
         void DoubleClick(IPageElement element);
         void HoverOver(IPageElement element);
+        void EnterText(IPageElement element, string text);
         IPageElement GetElementByCssSelector(string cssSelector);
         void Close();
     }

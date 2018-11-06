@@ -68,6 +68,12 @@ namespace AutomatedUITestingAndYou.Adapters
             new Actions(WebDriver).MoveToElement(seleniumElement.Element).Perform();
         }
 
+        public void EnterText(IPageElement element, string text)
+        {
+            var seleniumElement = GetSeleniumElement(element);
+            seleniumElement.Element.SendKeys(text);
+        }
+
         public IPageElement GetElementByCssSelector(string cssSelector) => new SeleniumElement(WebDriver.FindElement(By.CssSelector(cssSelector)));
 
         public void Close() => WebDriver.Quit();

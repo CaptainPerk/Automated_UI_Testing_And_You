@@ -56,5 +56,31 @@ namespace SparkboxUITests
             Assert.Contains("dblclick", testAreaContents);
             WaitForSeconds(7);
         }
+
+        [Fact]
+        public void Can_Navigate_Using_The_Navbar()
+        {
+            Site.UseNavigationBarToNavigateTo(Browser, Site.TeamPage);
+            WaitForSeconds(2);
+            Assert.Contains(Site.TeamPage.Url, Browser.GetCurrentUrl());
+            Site.UseNavigationBarToNavigateTo(Browser, Site.WhatWeDoPage);
+            WaitForSeconds(2);
+            Assert.Contains(Site.WhatWeDoPage.Url, Browser.GetCurrentUrl());
+            Site.UseNavigationBarToNavigateTo(Browser, Site.WorkPage);
+            WaitForSeconds(2);
+            Assert.Contains(Site.WorkPage.Url, Browser.GetCurrentUrl());
+            Site.UseNavigationBarToNavigateTo(Browser, Site.FoundryPage);
+            WaitForSeconds(2);
+            Assert.Contains(Site.FoundryPage.Url, Browser.GetCurrentUrl());
+            Site.UseNavigationBarToNavigateTo(Browser, Site.ResourcesPage);
+            WaitForSeconds(2);
+            Assert.Contains(Site.ResourcesPage.Url, Browser.GetCurrentUrl());
+            Site.UseNavigationBarToNavigateTo(Browser, Site.ContactPage);
+            WaitForSeconds(2);
+            Assert.Contains(Site.ContactPage.Url, Browser.GetCurrentUrl());
+            Site.UseNavigationBarToNavigateTo(Browser, Site.HomePage);
+            WaitForSeconds(2);
+            Assert.Contains(Site.HomePage.Url, Browser.GetCurrentUrl());
+        }
     }
 }
